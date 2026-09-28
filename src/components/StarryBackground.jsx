@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 export default function StarryBackground({ isCelebration = false }) {
   // Generate random twinkling stars
   const stars = useMemo(() => {
-    return Array.from({ length: 90 }).map((_, i) => ({
+    return Array.from({ length: 85 }).map((_, i) => ({
       id: i,
       x: Math.random() * 100,
       y: Math.random() * 100,
@@ -15,21 +15,39 @@ export default function StarryBackground({ isCelebration = false }) {
     }));
   }, []);
 
-  // Floating ambient hearts
-  const hearts = useMemo(() => {
-    return Array.from({ length: isCelebration ? 22 : 14 }).map((_, i) => ({
-      id: i,
-      x: Math.random() * 96 + 2,
-      size: Math.random() * 18 + 10,
-      duration: Math.random() * 12 + 10,
-      delay: Math.random() * 10,
-      rotate: Math.random() * 40 - 20,
-      color: ['#f43f5e', '#ec4899', '#f472b6', '#fda4af', '#f43f5e'][Math.floor(Math.random() * 5)],
-    }));
+  // Floating ambient celebration elements: Ribbons, Balloons, Flowers
+  const floatingElements = useMemo(() => {
+    const items = [
+      { icon: '🎈', label: 'balloon' },
+      { icon: '🌸', label: 'cherry-blossom' },
+      { icon: '🎀', label: 'ribbon' },
+      { icon: '💐', label: 'bouquet' },
+      { icon: '🌺', label: 'hibiscus' },
+      { icon: '🌷', label: 'tulip' },
+      { icon: '🎈', label: 'balloon-red' },
+      { icon: '🎀', label: 'ribbon-pink' },
+      { icon: '🌹', label: 'rose' },
+      { icon: '✨', label: 'sparkle' },
+    ];
+
+    const count = isCelebration ? 26 : 16;
+    return Array.from({ length: count }).map((_, i) => {
+      const item = items[i % items.length];
+      return {
+        id: i,
+        icon: item.icon,
+        x: Math.random() * 94 + 3,
+        size: Math.random() * 16 + 20, // 20px to 36px
+        duration: Math.random() * 12 + 10,
+        delay: Math.random() * 10,
+        rotate: Math.random() * 60 - 30,
+        sway: Math.random() * 40 + 20,
+      };
+    });
   }, [isCelebration]);
 
   return (
-    <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
+    <div className="fixed inset-0 pointer-events-none overflow-hidden z-0 select-none">
       {/* Deep Romantic Ambient Nebulae */}
       <div className="absolute top-[-10%] left-[-10%] w-[55vw] h-[55vw] rounded-full bg-pink-900/20 blur-[130px]" />
       <div className="absolute bottom-[-10%] right-[-10%] w-[60vw] h-[60vw] rounded-full bg-purple-900/20 blur-[140px]" />
@@ -77,38 +95,30 @@ export default function StarryBackground({ isCelebration = false }) {
         }}
       />
 
-      {/* Floating Glowing Hearts */}
-      {hearts.map((h) => (
+      {/* Floating Ribbons, Balloons, and Flowers */}
+      {floatingElements.map((el) => (
         <motion.div
-          key={h.id}
-          className="absolute bottom-[-40px]"
+          key={el.id}
+          className="absolute bottom-[-50px] flex items-center justify-center"
           style={{
-            left: `${h.x}%`,
-            color: h.color,
-            filter: `drop-shadow(0 0 10px ${h.color}88)`,
+            left: `${el.x}%`,
+            fontSize: `${el.size}px`,
+            filter: 'drop-shadow(0 0 12px rgba(244, 114, 182, 0.4))',
           }}
           animate={{
-            y: ['0vh', '-115vh'],
-            x: [0, Math.sin(h.id) * 35, 0],
-            opacity: [0, 0.75, 0.75, 0],
-            rotate: [h.rotate, h.rotate + 15, h.rotate - 15, h.rotate],
+            y: ['0vh', '-120vh'],
+            x: [0, (el.id % 2 === 0 ? 1 : -1) * el.sway, 0],
+            opacity: [0, 0.85, 0.85, 0],
+            rotate: [el.rotate, el.rotate + 35, el.rotate - 35, el.rotate],
           }}
           transition={{
-            duration: h.duration,
+            duration: el.duration,
             repeat: Infinity,
-            delay: h.delay,
-            ease: "linear",
+            delay: el.delay,
+            ease: "easeInOut",
           }}
         >
-          <svg
-            width={h.size}
-            height={h.size}
-            viewBox="0 0 24 24"
-            fill="currentColor"
-            stroke="none"
-          >
-            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
-          </svg>
+          {el.icon}
         </motion.div>
       ))}
     </div>

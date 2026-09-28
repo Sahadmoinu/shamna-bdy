@@ -16,7 +16,7 @@ export default function CelebrationHero({ onScrollToCake }) {
     <div className="relative min-h-[90vh] flex flex-col items-center justify-center text-center px-4 pt-12 pb-8 z-10">
       {/* Floating balloons in background */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {['🎈', '🌸', '✨', '💖', '🎉', '🌟', '🎈', '💐'].map((emoji, idx) => (
+        {['🎈', '🌸', '✨', '🎀', '🎉', '🌟', '🎈', '💐'].map((emoji, idx) => (
           <motion.div
             key={idx}
             className="absolute text-2xl sm:text-4xl opacity-75"
