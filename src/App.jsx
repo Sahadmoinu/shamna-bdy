@@ -66,7 +66,7 @@ export default function App() {
                     className="px-3 py-1.5 rounded-full bg-rose-500/10 hover:bg-rose-500/20 border border-rose-500/30 text-rose-200 transition-colors flex items-center gap-1.5"
                   >
                     <Mail className="w-3.5 h-3.5 text-rose-400" />
-                    <span className="hidden sm:inline">Love Letter</span>
+                    <span className="hidden sm:inline">Letter</span>
                   </a>
                   <a
                     href="#memories"
