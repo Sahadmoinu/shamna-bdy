@@ -1,0 +1,122 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Outfit', sans-serif;
+    background: radial-gradient(circle at 50% 20%, #1f0d2c 0%, #0d071a 50%, #05020a 100%);
+    min-height: 100vh;
+    color: #fce7f3;
+  }
+}
+
+.font-romantic {
+  font-family: 'Dancing Script', cursive;
+}
+
+.font-serif-luxury {
+  font-family: 'Playfair Display', serif;
+}
+
+/* Glassmorphism Cards */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.glass-card-glow {
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(244, 114, 182, 0.25);
+  box-shadow: 0 0 35px rgba(236, 72, 153, 0.15), inset 0 0 15px rgba(255, 255, 255, 0.05);
+}
+
+/* Shimmer Text Effect */
+.shimmer-text {
+  background: linear-gradient(
+    90deg,
+    #f472b6 0%,
+    #fb7185 25%,
+    #fef08a 50%,
+    #fb7185 75%,
+    #f472b6 100%
+  );
+  background-size: 200% auto;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: shine 4s linear infinite;
+}
+
+@keyframes shine {
+  to {
+    background-position: 200% center;
+  }
+}
+
+/* Candle flame animation */
+@keyframes flicker {
+  0%, 100% {
+    transform: scale(1) rotate(-1deg);
+    opacity: 0.95;
+    filter: drop-shadow(0 0 8px #f59e0b) drop-shadow(0 0 18px #ef4444);
+  }
+  25% {
+    transform: scale(1.08, 0.92) rotate(1.5deg);
+    opacity: 1;
+    filter: drop-shadow(0 0 10px #fbbf24) drop-shadow(0 0 22px #f97316);
+  }
+  50% {
+    transform: scale(0.94, 1.05) rotate(-2deg);
+    opacity: 0.88;
+    filter: drop-shadow(0 0 6px #f59e0b) drop-shadow(0 0 14px #ef4444);
+  }
+  75% {
+    transform: scale(1.04, 0.98) rotate(2deg);
+    opacity: 0.98;
+    filter: drop-shadow(0 0 12px #fde047) drop-shadow(0 0 25px #f43f5e);
+  }
+}
+
+.candle-flame {
+  animation: flicker 1.4s ease-in-out infinite alternate;
+  transform-origin: bottom center;
+}
+
+/* Smoke rise animation when candle blown */
+@keyframes smokeRise {
+  0% {
+    transform: translateY(0) scale(0.6);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateY(-25px) translateX(6px) scale(1.2);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(-55px) translateX(-8px) scale(1.8);
+    opacity: 0;
+  }
+}
+
+.smoke-particle {
+  animation: smokeRise 1.8s ease-out forwards;
+}
+
+/* Smooth custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #090412;
+}
+::-webkit-scrollbar-thumb {
+  background: #ec4899;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #f43f5e;
+}
