@@ -24,7 +24,7 @@ export default function LoveLetter() {
           From The Heart
         </span>
         <h2 className="text-3xl sm:text-4xl font-bold font-serif-luxury mt-3 text-white">
-          A Love Letter For You 💌
+          A letter for You 💌
         </h2>
         <p className="text-pink-200/80 text-sm sm:text-base mt-2">
           {isOpen ? "Read every word with your heart" : "Tap the wax seal to unfold this secret message"}
