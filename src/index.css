@@ -1,122 +1,103 @@
 @import "tailwindcss";
 
-@layer base {
-  body {
-    font-family: 'Outfit', sans-serif;
-    background: radial-gradient(circle at 50% 20%, #1f0d2c 0%, #0d071a 50%, #05020a 100%);
-    min-height: 100vh;
-    color: #fce7f3;
+@theme {
+  --color-ink: #0b100e;
+  --color-ink-2: #111814;
+  --color-ink-3: #18211c;
+  --color-cream: #efe9df;
+  --color-mute: #98a49d;
+  --color-line: rgb(239 233 223 / 0.09);
+  --color-lime: #c9e265;
+  --color-sand: #e2c6b1;
+  --color-forest: #1f3329;
+
+  --font-serif: "Instrument Serif", ui-serif, Georgia, serif;
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  --animate-marquee: marquee 38s linear infinite;
+  --animate-spin-slow: spin 18s linear infinite;
+  --animate-pulse-dot: pulse-dot 2s ease-in-out infinite;
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  @keyframes pulse-dot {
+    0%, 100% { box-shadow: 0 0 0 0 rgb(201 226 101 / 0.6); }
+    50% { box-shadow: 0 0 0 7px rgb(201 226 101 / 0); }
   }
 }
 
-.font-romantic {
-  font-family: 'Dancing Script', cursive;
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+  -webkit-text-size-adjust: 100%;
 }
 
-.font-serif-luxury {
-  font-family: 'Playfair Display', serif;
+body {
+  background: var(--color-ink);
+  color: var(--color-cream);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
-/* Glassmorphism Cards */
-.glass-panel {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+::selection {
+  background: var(--color-lime);
+  color: var(--color-ink);
 }
 
-.glass-card-glow {
-  background: rgba(255, 255, 255, 0.07);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(244, 114, 182, 0.25);
-  box-shadow: 0 0 35px rgba(236, 72, 153, 0.15), inset 0 0 15px rgba(255, 255, 255, 0.05);
+:focus-visible {
+  outline: 2px solid var(--color-lime);
+  outline-offset: 3px;
+  border-radius: 6px;
 }
 
-/* Shimmer Text Effect */
-.shimmer-text {
-  background: linear-gradient(
-    90deg,
-    #f472b6 0%,
-    #fb7185 25%,
-    #fef08a 50%,
-    #fb7185 75%,
-    #f472b6 100%
-  );
-  background-size: 200% auto;
+/* film grain over everything */
+.grain::after {
+  content: "";
+  position: fixed;
+  inset: -50%;
+  pointer-events: none;
+  z-index: 60;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* mouse-follow spotlight used on cards */
+.spotlight {
+  position: relative;
+  isolation: isolate;
+}
+.spotlight::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), rgb(201 226 101 / 0.11), transparent 45%);
+}
+.spotlight:hover::before { opacity: 1; }
+
+.text-outline {
   color: transparent;
-  -webkit-background-clip: text;
-  background-clip: text;
-  animation: shine 4s linear infinite;
+  -webkit-text-stroke: 1px rgb(239 233 223 / 0.35);
 }
 
-@keyframes shine {
-  to {
-    background-position: 200% center;
-  }
+.mask-fade-x {
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
 }
 
-/* Candle flame animation */
-@keyframes flicker {
-  0%, 100% {
-    transform: scale(1) rotate(-1deg);
-    opacity: 0.95;
-    filter: drop-shadow(0 0 8px #f59e0b) drop-shadow(0 0 18px #ef4444);
-  }
-  25% {
-    transform: scale(1.08, 0.92) rotate(1.5deg);
-    opacity: 1;
-    filter: drop-shadow(0 0 10px #fbbf24) drop-shadow(0 0 22px #f97316);
-  }
-  50% {
-    transform: scale(0.94, 1.05) rotate(-2deg);
-    opacity: 0.88;
-    filter: drop-shadow(0 0 6px #f59e0b) drop-shadow(0 0 14px #ef4444);
-  }
-  75% {
-    transform: scale(1.04, 0.98) rotate(2deg);
-    opacity: 0.98;
-    filter: drop-shadow(0 0 12px #fde047) drop-shadow(0 0 25px #f43f5e);
-  }
+/* custom cursor only on precise pointers */
+@media (hover: hover) and (pointer: fine) {
+  .has-cursor, .has-cursor a, .has-cursor button { cursor: none; }
 }
 
-.candle-flame {
-  animation: flicker 1.4s ease-in-out infinite alternate;
-  transform-origin: bottom center;
-}
-
-/* Smoke rise animation when candle blown */
-@keyframes smokeRise {
-  0% {
-    transform: translateY(0) scale(0.6);
-    opacity: 0.8;
-  }
-  50% {
-    transform: translateY(-25px) translateX(6px) scale(1.2);
-    opacity: 0.5;
-  }
-  100% {
-    transform: translateY(-55px) translateX(-8px) scale(1.8);
-    opacity: 0;
-  }
-}
-
-.smoke-particle {
-  animation: smokeRise 1.8s ease-out forwards;
-}
-
-/* Smooth custom scrollbar */
-::-webkit-scrollbar {
-  width: 6px;
-}
-::-webkit-scrollbar-track {
-  background: #090412;
-}
-::-webkit-scrollbar-thumb {
-  background: #ec4899;
-  border-radius: 9999px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #f43f5e;
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .animate-marquee, .animate-spin-slow { animation: none !important; }
 }
