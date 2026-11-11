@@ -124,7 +124,7 @@ export const projects = [
     org: 'BPract Software Solutions',
     region: 'Client in Peru',
     visual: 'binary',
-    accent: '#c9e265',
+    accent: '#9a7150',
     summary:
       'Primary communication link between the Peruvian client and the technical teams, taking a binary-plan MLM platform from scope to delivery.',
     points: [
@@ -142,7 +142,7 @@ export const projects = [
     org: 'BPract Software Solutions',
     region: 'Client in South Africa',
     visual: 'unilevel',
-    accent: '#e7c3a8',
+    accent: '#b0784f',
     summary:
       'End-to-end execution of a unilevel MLM platform, with client meetings handled independently with South African stakeholders.',
     points: [
@@ -160,7 +160,7 @@ export const projects = [
     org: 'Academic Project',
     region: 'Python · JavaScript',
     visual: 'ai',
-    accent: '#9fd8c2',
+    accent: '#7d7a5a',
     summary:
       'An AI-assisted screening solution, designed to make the screening process faster and easier to use.',
     points: [
@@ -177,7 +177,7 @@ export const projects = [
     org: 'Personal Project',
     region: 'MERN Stack',
     visual: 'estate',
-    accent: '#b9c6f0',
+    accent: '#8a6f62',
     summary:
       'A full-stack real estate platform built and managed end to end on the MERN stack.',
     points: [

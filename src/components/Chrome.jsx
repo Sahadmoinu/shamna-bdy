@@ -90,12 +90,12 @@ export function Cursor() {
         style={{ x, y, translateX: '-50%', translateY: '-50%' }}
       />
       <motion.div
-        className="pointer-events-none fixed left-0 top-0 z-[90] rounded-full border border-lime/60 mix-blend-difference"
+        className="pointer-events-none fixed left-0 top-0 z-[90] rounded-full border border-lime/60"
         style={{ x: rx, y: ry, translateX: '-50%', translateY: '-50%' }}
         animate={{
           width: hover ? 64 : 34,
           height: hover ? 64 : 34,
-          backgroundColor: hover ? 'rgba(201,226,101,0.9)' : 'rgba(201,226,101,0)',
+          backgroundColor: hover ? 'rgba(154,113,80,0.18)' : 'rgba(154,113,80,0)',
           scale: down ? 0.8 : 1,
         }}
         transition={{ type: 'spring', stiffness: 300, damping: 25 }}
@@ -152,7 +152,7 @@ export function Nav() {
       >
         <div
           className={`mx-auto max-w-7xl flex items-center justify-between rounded-full border transition-all duration-500 pl-5 pr-2 py-2 ${
-            scrolled ? 'border-line bg-ink/70 backdrop-blur-xl shadow-[0_10px_40px_-20px_rgba(0,0,0,0.8)]' : 'border-transparent'
+            scrolled ? 'border-line bg-ink/75 backdrop-blur-xl shadow-[0_10px_40px_-20px_rgba(90,60,30,0.35)]' : 'border-transparent'
           }`}
         >
           <a href="#top" className="font-serif text-2xl tracking-tight" aria-label="Back to top">

@@ -1,15 +1,15 @@
 @import "tailwindcss";
 
 @theme {
-  --color-ink: #0b100e;
-  --color-ink-2: #111814;
-  --color-ink-3: #18211c;
-  --color-cream: #efe9df;
-  --color-mute: #98a49d;
-  --color-line: rgb(239 233 223 / 0.09);
-  --color-lime: #c9e265;
-  --color-sand: #e2c6b1;
-  --color-forest: #1f3329;
+  --color-ink: #ffffff;
+  --color-ink-2: #f5ede2;
+  --color-ink-3: #ece0d0;
+  --color-cream: #2e241c;
+  --color-mute: #7a6a5c;
+  --color-line: rgb(46 36 28 / 0.11);
+  --color-lime: #9a7150;
+  --color-sand: #c49a74;
+  --color-forest: #efe2d1;
 
   --font-serif: "Instrument Serif", ui-serif, Georgia, serif;
   --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
@@ -24,8 +24,8 @@
     to { transform: translateX(-50%); }
   }
   @keyframes pulse-dot {
-    0%, 100% { box-shadow: 0 0 0 0 rgb(201 226 101 / 0.6); }
-    50% { box-shadow: 0 0 0 7px rgb(201 226 101 / 0); }
+    0%, 100% { box-shadow: 0 0 0 0 rgb(154 113 80 / 0.5); }
+    50% { box-shadow: 0 0 0 7px rgb(154 113 80 / 0); }
   }
 }
 
@@ -62,7 +62,7 @@ body {
   inset: -50%;
   pointer-events: none;
   z-index: 60;
-  opacity: 0.05;
+  opacity: 0.035;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
@@ -79,13 +79,13 @@ body {
   z-index: -1;
   opacity: 0;
   transition: opacity 0.4s ease;
-  background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), rgb(201 226 101 / 0.11), transparent 45%);
+  background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), rgb(196 154 116 / 0.16), transparent 45%);
 }
 .spotlight:hover::before { opacity: 1; }
 
 .text-outline {
   color: transparent;
-  -webkit-text-stroke: 1px rgb(239 233 223 / 0.35);
+  -webkit-text-stroke: 1px rgb(46 36 28 / 0.35);
 }
 
 .mask-fade-x {

@@ -57,7 +57,7 @@ function FloatCard({ children, className, delay, floatY = 10, duration = 5 }) {
       <motion.div
         animate={{ y: [0, -floatY, 0] }}
         transition={{ duration, repeat: Infinity, ease: 'easeInOut' }}
-        className="rounded-2xl border border-line bg-ink/75 backdrop-blur-xl px-4 py-3 shadow-[0_20px_50px_-20px_rgba(0,0,0,0.9)]"
+        className="rounded-2xl border border-line bg-ink/75 backdrop-blur-xl px-4 py-3 shadow-[0_20px_50px_-20px_rgba(90,60,30,0.4)]"
       >
         {children}
       </motion.div>
@@ -120,7 +120,7 @@ function Portrait() {
           className="absolute inset-0 h-full w-full object-cover object-[50%_30%]"
           fetchPriority="high"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#2e241c]/35 via-transparent to-transparent" />
       </motion.div>
 
       <FloatCard className="-right-4 sm:-right-10 top-[18%]" delay={1.2} floatY={8} duration={4.5}>
@@ -159,7 +159,7 @@ export default function Hero() {
         <div className="absolute -top-40 left-1/2 h-[600px] w-[900px] -translate-x-1/2 rounded-full bg-forest/60 blur-[120px]" />
         <div className="absolute top-1/3 -right-40 h-[400px] w-[400px] rounded-full bg-lime/10 blur-[120px]" />
         <div className="absolute bottom-0 -left-32 h-[360px] w-[360px] rounded-full bg-sand/10 blur-[120px]" />
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgb(239_233_223/0.04)_1px,transparent_1px),linear-gradient(to_bottom,rgb(239_233_223/0.04)_1px,transparent_1px)] bg-[size:72px_72px] [mask-image:radial-gradient(ellipse_at_center,black_30%,transparent_75%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgb(46_36_28/0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgb(46_36_28/0.05)_1px,transparent_1px)] bg-[size:72px_72px] [mask-image:radial-gradient(ellipse_at_center,black_30%,transparent_75%)]" />
       </div>
 
       <motion.div style={{ y, opacity }} className="relative mx-auto max-w-7xl px-5 md:px-8 grid lg:grid-cols-[1.25fr_1fr] gap-16 lg:gap-10 items-center">

@@ -60,7 +60,7 @@ function Tree({ levels, color }) {
       {nodes.map((n, i) => (
         <motion.g key={i} style={{ originX: `${n.x}px`, originY: `${n.y}px` }} {...pop(0.1 + n.li * 0.45 + n.ni * 0.04)}>
           {n.root && <circle cx={n.x} cy={n.y} r="20" fill={color} fillOpacity="0.12" />}
-          <circle cx={n.x} cy={n.y} r={n.root ? 11 : n.li === 1 ? 8 : 5.5} fill={n.root ? color : '#0b100e'} stroke={color} strokeWidth="1.5" />
+          <circle cx={n.x} cy={n.y} r={n.root ? 11 : n.li === 1 ? 8 : 5.5} fill={n.root ? color : '#ffffff'} stroke={color} strokeWidth="1.5" />
         </motion.g>
       ))}
     </Svg>
@@ -90,7 +90,7 @@ function AiNet({ color }) {
         />
       ))}
       {nodes.map((n, i) => (
-        <motion.circle key={i} cx={n.x} cy={n.y} r={n.li === 3 ? 10 : 6} fill={n.li === 3 ? color : '#0b100e'} stroke={color} strokeWidth="1.5" style={{ originX: `${n.x}px`, originY: `${n.y}px` }} {...pop(0.1 + n.li * 0.3)} />
+        <motion.circle key={i} cx={n.x} cy={n.y} r={n.li === 3 ? 10 : 6} fill={n.li === 3 ? color : '#ffffff'} stroke={color} strokeWidth="1.5" style={{ originX: `${n.x}px`, originY: `${n.y}px` }} {...pop(0.1 + n.li * 0.3)} />
       ))}
     </Svg>
   )
@@ -111,7 +111,7 @@ function Skyline({ color }) {
         >
           <rect x={x} y={200 - h} width="32" height={h} rx="3" fill={color} fillOpacity={i === 3 ? 0.9 : 0.12} stroke={color} strokeOpacity="0.6" />
           {Array.from({ length: Math.floor(h / 22) }).map((_, j) => (
-            <rect key={j} x={x + 8} y={200 - h + 10 + j * 22} width="16" height="8" rx="1.5" fill={i === 3 ? '#0b100e' : color} fillOpacity={i === 3 ? 0.5 : 0.35} />
+            <rect key={j} x={x + 8} y={200 - h + 10 + j * 22} width="16" height="8" rx="1.5" fill={i === 3 ? '#ffffff' : color} fillOpacity={i === 3 ? 0.5 : 0.35} />
           ))}
         </motion.g>
       ))}
@@ -137,7 +137,7 @@ function ProjectCard({ p, i, n, progress, stack }) {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: '-80px' }}
         transition={{ duration: 0.9, ease: EASE }}
-        className="relative w-full origin-top overflow-hidden rounded-[32px] border border-line bg-ink-2 shadow-[0_-20px_60px_-30px_rgba(0,0,0,0.9)]"
+        className="relative w-full origin-top overflow-hidden rounded-[32px] border border-line bg-ink-2 shadow-[0_-20px_60px_-30px_rgba(90,60,30,0.3)]"
       >
         <div className="grid lg:grid-cols-[1.15fr_1fr]">
           <div className="p-7 md:p-10 flex flex-col">
@@ -166,7 +166,7 @@ function ProjectCard({ p, i, n, progress, stack }) {
 
           <div className="relative min-h-[260px] lg:min-h-full border-t lg:border-t-0 lg:border-l border-line overflow-hidden">
             <div className="absolute inset-0 opacity-60" style={{ background: `radial-gradient(circle at 50% 40%, ${p.accent}26, transparent 65%)` }} />
-            <div className="absolute inset-0 bg-[radial-gradient(rgb(239_233_223/0.07)_1px,transparent_1px)] bg-[size:18px_18px]" />
+            <div className="absolute inset-0 bg-[radial-gradient(rgb(46_36_28/0.08)_1px,transparent_1px)] bg-[size:18px_18px]" />
             <div className="relative h-full w-full p-8 md:p-12 grid place-items-center">
               <div className="w-full max-w-[380px] aspect-[300/220]">
                 <Visual kind={p.visual} color={p.accent} />
