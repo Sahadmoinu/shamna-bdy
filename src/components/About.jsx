@@ -72,8 +72,8 @@ export function About() {
             <Reveal delay={0.1} className="mt-10 grid sm:grid-cols-2 gap-6 text-mute leading-relaxed">
               <p>
                 At BPract I run several projects at once, from MLM platforms with genealogy trees, rank qualifications and
-                payout engines to Facility Management and AI Agent products, and I own each one from the first client call to the
-                production release.
+                payout engines to Facility Management, AI Agent and sports-tech products, and I own each one from the first
+                client call to the production release.
               </p>
               <p>
                 A B.Tech in Information Technology and hands-on MERN, Python and SQL experience mean I can talk architecture
@@ -103,7 +103,8 @@ export function Skills() {
     <section id="skills" className="relative py-28 md:py-40 bg-ink-2 border-y border-line">
       <div className="mx-auto max-w-7xl px-5 md:px-8">
         <SectionHeading index="02" eyebrow="Core skills" title="A toolkit built for" accent="delivery.">
-          Project management discipline, business analysis rigour and a real technical foundation, all in one coordinator.
+          Project management discipline, business analysis rigour, a real technical foundation and a knack for client
+          outreach, all in one coordinator.
         </SectionHeading>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">

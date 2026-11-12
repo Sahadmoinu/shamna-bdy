@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { AnimatePresence, motion, useMotionValue, useScroll, useSpring, useTransform } from 'framer-motion'
-import { ArrowDown, ArrowUpRight, MapPin, Trophy, Globe } from 'lucide-react'
+import { ArrowDown, ArrowUpRight, MapPin, Trophy } from 'lucide-react'
 import { profile } from '../data'
 import { EASE, Magnetic, GithubIcon, LinkedinIcon } from './ui'
 
@@ -129,16 +129,6 @@ function Portrait() {
           <div>
             <p className="text-sm font-semibold leading-tight">GATE 2025</p>
             <p className="text-[11px] text-mute">Qualified · CS/IT</p>
-          </div>
-        </div>
-      </FloatCard>
-
-      <FloatCard className="-left-4 sm:-left-12 bottom-[14%]" delay={1.4} floatY={12} duration={5.5}>
-        <div className="flex items-center gap-3">
-          <span className="grid h-9 w-9 place-items-center rounded-xl bg-sand/15 text-sand"><Globe className="h-4 w-4" /></span>
-          <div>
-            <p className="text-sm font-semibold leading-tight">International clients</p>
-            <p className="text-[11px] text-mute">Peru · South Africa</p>
           </div>
         </div>
       </FloatCard>

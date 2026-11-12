@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion'
 import { MapPin, Briefcase } from 'lucide-react'
 import { projects } from '../data'
 import { SectionHeading, Chip, EASE } from './ui'
@@ -119,9 +119,72 @@ function Skyline({ color }) {
   )
 }
 
+const TRACK =
+  'M60,170 C20,170 20,110 55,100 C90,90 80,50 120,40 C160,30 175,75 210,70 C250,64 280,90 270,130 C262,165 220,160 200,180 C180,200 100,170 60,170 Z'
+const fade = (delay) => ({
+  variants: { hidden: { opacity: 0 }, show: { opacity: 1, transition: { duration: 0.6, delay } } },
+})
+
+function RaceTrack({ color }) {
+  const reduce = useReducedMotion()
+  const pins = [[120, 40], [270, 130]]
+  const racers = [
+    { fill: color, dur: '6s', begin: '0s', at: [55, 100] },
+    { fill: '#ffffff', dur: '6.8s', begin: '-1.6s', at: [210, 70] },
+  ]
+  return (
+    <Svg>
+      {/* asphalt band + dashed centre line */}
+      <motion.path d={TRACK} fill="none" stroke={color} strokeOpacity="0.14" strokeWidth="18" strokeLinejoin="round" {...draw(0.1)} />
+      <motion.path d={TRACK} fill="none" stroke={color} strokeOpacity="0.5" strokeWidth="1.2" strokeDasharray="5 6" {...fade(0.8)} />
+
+      {/* start / finish flag */}
+      <motion.g {...pop(1)}>
+        <line x1="60" y1="179" x2="60" y2="132" stroke={color} strokeWidth="1.5" />
+        <path d="M60,132 L80,138 L60,144 Z" fill={color} />
+        <rect x="56" y="161" width="8" height="18" fill="#ffffff" stroke={color} strokeWidth="1" />
+        {[0, 1, 2, 3].map((k) => (
+          <rect key={k} x={k % 2 ? 60 : 56} y={161 + k * 4.5} width="4" height="4.5" fill={color} />
+        ))}
+      </motion.g>
+
+      {/* map pins on checkpoints */}
+      {pins.map(([x, y], i) => (
+        <motion.g key={i} {...pop(1.15 + i * 0.12)}>
+          <g transform={`translate(${x},${y})`}>
+            <path d="M0,0 C-3,-6 -9,-10 -9,-16 A9,9 0 1 1 9,-16 C9,-10 3,-6 0,0 Z" fill={color} />
+            <circle cx="0" cy="-16" r="3.5" fill="#ffffff" />
+          </g>
+        </motion.g>
+      ))}
+
+      {/* racers lapping the circuit */}
+      <motion.g {...fade(1.3)}>
+        {racers.map((r, i) =>
+          reduce ? (
+            <circle key={i} cx={r.at[0]} cy={r.at[1]} r="6" fill={r.fill} stroke={color} strokeWidth="2" />
+          ) : (
+            <circle key={i} r="6" fill={r.fill} stroke={color} strokeWidth="2">
+              <animateMotion dur={r.dur} begin={r.begin} repeatCount="indefinite" path={TRACK} />
+            </circle>
+          ),
+        )}
+      </motion.g>
+
+      {/* live results badge */}
+      <motion.g {...pop(1.5)}>
+        <rect x="14" y="14" width="56" height="20" rx="10" fill="#ffffff" stroke={color} strokeOpacity="0.5" />
+        <motion.circle cx="26" cy="24" r="3" fill={color} animate={reduce ? undefined : { opacity: [1, 0.2, 1] }} transition={{ duration: 1.4, repeat: Infinity }} />
+        <text x="34" y="27.5" fontSize="9" fontFamily="JetBrains Mono, monospace" letterSpacing="1.5" fill={color}>LIVE</text>
+      </motion.g>
+    </Svg>
+  )
+}
+
 function Visual({ kind, color }) {
   if (kind === 'binary') return <Tree color={color} levels={[[150], [85, 215], [50, 120, 180, 250]]} />
   if (kind === 'unilevel') return <Tree color={color} levels={[[150], [40, 95, 150, 205, 260], [25, 55, 85, 115, 150, 185, 215, 245, 275]]} />
+  if (kind === 'race') return <RaceTrack color={color} />
   if (kind === 'ai') return <AiNet color={color} />
   return <Skyline color={color} />
 }
@@ -189,7 +252,7 @@ export default function Projects() {
     <section id="projects" className="relative pt-28 md:pt-40 pb-16">
       <div className="mx-auto max-w-7xl px-5 md:px-8">
         <SectionHeading index="05" eyebrow="Selected projects" title="Work I’ve" accent="carried to the finish.">
-          International MLM platforms coordinated at BPract, plus the AI and full-stack builds that shaped how I work.
+          International MLM and sports-tech platforms coordinated at BPract, plus the AI and full-stack builds that shaped how I work.
         </SectionHeading>
         <div ref={ref} className={stack ? 'pb-[10vh]' : ''}>
           {projects.map((p, i) => (

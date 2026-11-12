@@ -2,14 +2,14 @@ import { useRef } from 'react'
 import { motion, useMotionValue, useSpring } from 'framer-motion'
 import {
   ClipboardList, Code2, Network, BrainCircuit, Search, FileText, Workflow, Users, Rocket,
-  Trophy, Mic, GraduationCap,
+  Trophy, Mic, GraduationCap, Handshake, Medal,
 } from 'lucide-react'
 
 export const EASE = [0.22, 1, 0.36, 1]
 
 export const icons = {
   ClipboardList, Code2, Network, BrainCircuit, Search, FileText, Workflow, Users, Rocket,
-  Trophy, Mic, GraduationCap,
+  Trophy, Mic, GraduationCap, Handshake, Medal,
 }
 
 export function Reveal({ children, delay = 0, y = 28, className = '', as = 'div' }) {

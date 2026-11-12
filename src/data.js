@@ -15,7 +15,7 @@ export const profile = {
   githubLabel: 'github.com/kshamna',
   photo: '/shamna.jpg',
   summary:
-    'IT Project Coordinator and Business Analyst, GATE 2025 qualified, managing end-to-end software projects across MLM, Facility Management and AI Agent solutions. I turn business requirements into clear documentation, well-scoped Jira tasks, and releases that ship on time.',
+    'IT Project Coordinator and Business Analyst, GATE 2025 qualified, managing end-to-end software projects across MLM, Facility Management and AI Agent solutions. I translate business requirements into clear SRS and PRDs, well-scoped Jira tasks, and releases that ship on time.',
 }
 
 export const nav = [
@@ -30,13 +30,14 @@ export const nav = [
 export const stats = [
   { value: 100, suffix: '+', label: 'Students mentored in Python' },
   { value: 15, suffix: '+', label: 'Members coordinated at IEEE SB' },
-  { value: 2, suffix: '', label: 'International MLM platforms delivered' },
+  { value: 5, suffix: '', label: 'Projects coordinated end to end' },
   { value: 4, suffix: '', label: 'Languages spoken' },
 ]
 
 export const marquee = [
-  'Agile / Scrum', 'SRS & PRD', 'Jira', 'UAT & Release', 'Stakeholder Management', 'MERN Stack',
-  'Python', 'RESTful APIs', 'MySQL', 'Binary & Unilevel MLM', 'Risk Handling', 'Data Analysis',
+  'Requirement Gathering', 'Business Analysis', 'Agile / Scrum', 'SRS & PRD', 'Jira', 'UAT & Release',
+  'Stakeholder Management', 'MERN Stack', 'Python', 'RESTful APIs', 'MySQL', 'Binary & Unilevel MLM',
+  'Risk Handling', 'Lead Generation', 'Data Analysis',
 ]
 
 export const skillGroups = [
@@ -45,7 +46,7 @@ export const skillGroups = [
     title: 'Project Management & Business Analysis',
     blurb: 'From the first requirement call to the production release.',
     icon: 'ClipboardList',
-    items: ['Project Planning', 'Agile Methodology', 'Task Tracking', 'Workflow Management', 'SRS / PRD Documentation', 'Jira', 'UAT & Release Management', 'Risk Handling'],
+    items: ['Project Planning', 'Agile Methodology', 'Task Tracking', 'Workflow Management', 'SRS / PRD Documentation', 'Jira', 'UAT & Release Management', 'Risk Handling', 'Requirement Gathering', 'Business Analysis'],
     span: 'lg:col-span-2',
   },
   {
@@ -53,7 +54,7 @@ export const skillGroups = [
     title: 'Technical Foundation',
     blurb: 'Enough engineering depth to speak the team’s language.',
     icon: 'Code2',
-    items: ['MERN Stack', 'Python', 'R', 'JavaScript', 'SQL', 'RESTful APIs', 'Git', 'MySQL', 'Database Management', 'Data Analysis'],
+    items: ['MERN Stack', 'Python', 'R', 'JavaScript', 'SQL', 'RESTful APIs', 'Git', 'MySQL', 'Database Management', 'Data Analysis', 'API Integration'],
     span: 'lg:row-span-2',
   },
   {
@@ -61,16 +62,29 @@ export const skillGroups = [
     title: 'Domain & Coordination',
     blurb: 'Deep MLM business logic and clients across continents.',
     icon: 'Network',
-    items: ['Binary & Unilevel MLM', 'International Client Management', 'Stakeholder Communication', 'Cross-functional Collaboration', 'Team Leadership'],
+    items: ['Binary & Unilevel MLM', 'International Client Management', 'Stakeholder Communication', 'Cross-functional Collaboration', 'Team Leadership', 'Client Meetings & Follow-ups'],
+    span: '',
+  },
+  {
+    key: 'sales',
+    title: 'Sales & Business Development',
+    blurb: 'From first cold call to confirmed sign-up.',
+    icon: 'Handshake',
+    items: ['Lead Generation', 'Cold Calling', 'Lead Qualification', 'Client Outreach', 'Sales Follow-ups', 'Customer Engagement', 'Conversion Support', 'Relationship Management'],
     span: '',
   },
   {
     key: 'soft',
     title: 'Analytical & Soft Skills',
-    blurb: 'Clear thinking, clear communication.',
+    blurb: 'Clear thinking, clear communication, and ownership of the outcome.',
     icon: 'BrainCircuit',
-    items: ['Problem-Solving', 'Analytical Thinking', 'Process Optimization', 'Effective Communication', 'Adaptability', 'Customer Support'],
-    span: '',
+    items: [
+      'Problem-Solving', 'Analytical Thinking', 'Critical Thinking', 'Verbal & Written Communication', 'Active Listening',
+      'Interpersonal Skills', 'Adaptability', 'Team Collaboration', 'Leadership', 'Time Management', 'Prioritisation',
+      'Organisation', 'Attention to Detail', 'Decision-Making', 'Conflict Resolution', 'Initiative', 'Accountability',
+      'Ownership', 'Presentation Skills', 'Mentoring', 'Customer Support', 'Process Optimization',
+    ],
+    span: 'md:col-span-2 lg:col-span-3',
   },
 ]
 
@@ -87,7 +101,8 @@ export const experience = [
       'Gather and analyse business requirements; write SRS, PRDs, technical documentation and actionable Jira tasks.',
       'Lead cross-functional frontend, backend and QA teams: task allocation, timelines, dependencies and deliverables.',
       'Work extensively with Binary and Unilevel MLM logic: genealogy, rank qualifications, commissions, referral rewards and payouts.',
-      'Coordinate development, testing, UAT, defect resolution and production releases; resolve escalations and blockers.',
+      'Coordinate development, testing, UAT, defect resolution and production releases.',
+      'Manage client escalations, resolve project blockers and keep delivery within agreed timelines.',
     ],
     tags: ['Jira', 'Agile', 'SRS / PRD', 'UAT', 'MLM'],
   },
@@ -104,15 +119,19 @@ export const experience = [
   },
   {
     company: 'Pygrammers Python Community',
-    role: 'Event Management Intern',
+    role: 'Project Management Intern',
     sub: 'Hybrid',
     period: 'July 2021 – May 2025',
     points: [
-      'Planned and organised multiple Python bootcamps and technical events across colleges in Kerala.',
+      'Planned, organised and coordinated multiple Python bootcamps and technical events across colleges in Kerala.',
       'Mentored 100+ students in Python fundamentals and project development.',
-      'Coordinated team meetups and community-building initiatives.',
+      'Ran student outreach through cold calling: explaining programs, answering queries and converting leads into confirmed registrations.',
+      'Supported sales and promotion through follow-ups that communicated program benefits and drove bootcamp enrolments.',
+      'Assisted with project planning, scheduling, resource coordination, team communication and execution tracking.',
+      'Worked with internal teams and college representatives on logistics, participant onboarding and program execution.',
+      'Coordinated team meetups and community-building initiatives for Python enthusiasts.',
     ],
-    tags: ['Python', 'Events', 'Mentoring'],
+    tags: ['Python', 'Mentoring', 'Lead Generation', 'Events', 'Planning'],
   },
 ]
 
@@ -154,9 +173,27 @@ export const projects = [
     tags: ['Scrum', 'Stakeholders', 'Manual QA', 'Unilevel MLM'],
   },
   {
+    title: 'ChaseMates',
+    type: 'Sports Technology · Racing Management',
+    role: 'Project Coordinator',
+    org: 'BPract Software Solutions',
+    region: 'Sports-tech platform',
+    visual: 'race',
+    accent: '#a2674a',
+    summary:
+      'End-to-end coordination of a sports technology platform that connects racing enthusiasts and makes racing events easy to run.',
+    points: [
+      'Gathered requirements, wrote PRDs and feature specs, and turned business needs into development tasks.',
+      'Ran sprint planning, task allocation, progress tracking and issue resolution in Jira.',
+      'Coordinated frontend, backend and QA to hit milestones, plus requirement clarification, testing and bug tracking.',
+      'Tracked key features: user discovery, race scheduling and booking, map integration and live race results.',
+    ],
+    tags: ['PRD', 'Jira', 'Sprint Planning', 'Maps', 'Live Results'],
+  },
+  {
     title: 'Drug Abuse Detection using AI',
     type: 'AI Screening Tool',
-    role: 'Project Coordination',
+    role: 'Developer & Project Coordinator',
     org: 'Academic Project',
     region: 'Python · JavaScript',
     visual: 'ai',
@@ -173,7 +210,7 @@ export const projects = [
   {
     title: 'EstateEase',
     type: 'Real Estate Platform',
-    role: 'Developer',
+    role: 'Developer & Project Coordinator',
     org: 'Personal Project',
     region: 'MERN Stack',
     visual: 'estate',
@@ -226,6 +263,7 @@ export const achievements = [
   { title: 'GATE 2025 Qualified', text: 'Graduate Aptitude Test in Engineering, CS/IT.', icon: 'Trophy' },
   { title: 'R10 WIE DEI 2024', text: 'Featured at the IEEE Region 10 global webinar.', icon: 'Mic' },
   { title: '100+ Students Mentored', text: 'Python fundamentals and project development.', icon: 'GraduationCap' },
+  { title: 'Aaravam 2K26 · First Prize', text: 'Group Leader for the Onam celebration at Government Cyberpark, Calicut.', icon: 'Medal' },
 ]
 
 export const education = {
@@ -235,4 +273,11 @@ export const education = {
   cgpa: '7.50',
 }
 
-export const languages = ['English', 'Malayalam', 'Hindi', 'Tamil']
+export const languages = [
+  { name: 'English', level: 'Fluent' },
+  { name: 'Malayalam', level: 'Native' },
+  { name: 'Hindi', level: 'Speak' },
+  { name: 'Tamil', level: 'Speak' },
+]
+
+export const hobbies = ['Reading', 'Writing', 'Video Editing', 'Video Presentations', 'Emceeing', 'Volunteering']

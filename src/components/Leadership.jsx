@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
-import { GraduationCap, Languages } from 'lucide-react'
-import { leadership, achievements, education, languages } from '../data'
+import { GraduationCap, Heart, Languages } from 'lucide-react'
+import { leadership, achievements, education, languages, hobbies } from '../data'
 import { Reveal, SectionHeading, icons, trackSpotlight, EASE } from './ui'
 
 export function Leadership() {
@@ -54,7 +54,7 @@ export function Achievements() {
         <SectionHeading index="07" eyebrow="Education & achievements" title="Foundations &" accent="milestones." />
 
         <div className="grid lg:grid-cols-3 gap-5">
-          <Reveal className="lg:row-span-2">
+          <Reveal className="lg:row-span-3">
             <div className="relative h-full overflow-hidden rounded-[28px] border border-line bg-gradient-to-br from-forest to-ink p-8 md:p-10 flex flex-col">
               <div aria-hidden="true" className="absolute -right-16 -top-16 h-56 w-56 rounded-full border border-lime/20" />
               <div aria-hidden="true" className="absolute -right-4 -top-4 h-32 w-32 rounded-full border border-lime/20" />
@@ -90,23 +90,43 @@ export function Achievements() {
             )
           })}
 
-          <Reveal delay={0.35}>
-            <div className="h-full rounded-[28px] border border-line bg-ink-2 p-8">
-              <span className="grid h-11 w-11 place-items-center rounded-xl bg-sand/15 text-sand"><Languages className="h-5 w-5" /></span>
-              <h3 className="mt-6 font-serif text-3xl">Languages</h3>
-              <div className="mt-4 flex flex-wrap gap-2">
-                {languages.map((l, i) => (
-                  <motion.span
-                    key={l}
-                    initial={{ opacity: 0, y: 10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.4 + i * 0.08 }}
-                    className="rounded-full bg-cream/[0.06] px-4 py-1.5 text-sm"
-                  >
-                    {l}
-                  </motion.span>
-                ))}
+          <Reveal delay={0.35} className="lg:col-span-2">
+            <div className="h-full rounded-[28px] border border-line bg-ink-2 p-8 grid sm:grid-cols-2 gap-10">
+              <div>
+                <span className="grid h-11 w-11 place-items-center rounded-xl bg-sand/15 text-sand"><Languages className="h-5 w-5" /></span>
+                <h3 className="mt-6 font-serif text-3xl">Languages</h3>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {languages.map((l, i) => (
+                    <motion.span
+                      key={l.name}
+                      initial={{ opacity: 0, y: 10 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: 0.4 + i * 0.08 }}
+                      className="rounded-full bg-cream/[0.06] px-4 py-1.5 text-sm"
+                    >
+                      {l.name} <span className="text-mute">· {l.level}</span>
+                    </motion.span>
+                  ))}
+                </div>
+              </div>
+              <div>
+                <span className="grid h-11 w-11 place-items-center rounded-xl bg-lime/10 text-lime"><Heart className="h-5 w-5" /></span>
+                <h3 className="mt-6 font-serif text-3xl">Hobbies</h3>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {hobbies.map((h, i) => (
+                    <motion.span
+                      key={h}
+                      initial={{ opacity: 0, y: 10 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: 0.5 + i * 0.06 }}
+                      className="rounded-full bg-cream/[0.06] px-4 py-1.5 text-sm"
+                    >
+                      {h}
+                    </motion.span>
+                  ))}
+                </div>
               </div>
             </div>
           </Reveal>
