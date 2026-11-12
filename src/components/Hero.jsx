@@ -164,8 +164,18 @@ export default function Hero() {
             Currently at {profile.company}
           </motion.div>
 
-          <h1 className="mt-8 font-serif leading-[0.86] tracking-tight text-[18.5vw] sm:text-[15vw] lg:text-[10.5rem] whitespace-nowrap">
-            <span className="sr-only">{profile.name}, {profile.roles.join(', ')}</span>
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: EASE, delay: 0.15 }}
+            className="mt-8 font-serif italic text-3xl md:text-4xl text-mute"
+            aria-hidden="true"
+          >
+            {profile.greeting}
+          </motion.p>
+
+          <h1 className="mt-1 font-serif leading-[0.86] tracking-tight text-[18.5vw] sm:text-[15vw] lg:text-[10.5rem] whitespace-nowrap">
+            <span className="sr-only">{profile.greeting} {profile.name}. {profile.roles.join(', ')}</span>
             <Letters text="Shamna" delay={0.2} />
             <Letters text="K." delay={0.5} className="italic text-outline ml-[0.15em]" />
           </h1>
@@ -180,21 +190,30 @@ export default function Hero() {
             <RoleRotator roles={profile.roles} />
           </motion.p>
 
-          <motion.p
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, ease: EASE, delay: 0.95 }}
-            className="mt-6 max-w-xl text-lg text-mute leading-relaxed"
+            className="mt-6 max-w-xl"
           >
-            I turn business requirements into clear documentation, well-scoped sprints and software that ships, for international clients from{' '}
-            <span className="text-cream">Peru to South Africa</span>.
+            <p className="text-xl md:text-2xl text-cream leading-snug">{profile.tagline}</p>
+            <p className="mt-4 text-base md:text-lg text-mute leading-relaxed">{profile.intro}</p>
+          </motion.div>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, ease: EASE, delay: 1.05 }}
+            className="mt-8 font-serif italic text-2xl md:text-3xl text-lime"
+          >
+            {profile.cta}
           </motion.p>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, ease: EASE, delay: 1.1 }}
-            className="mt-10 flex flex-wrap items-center gap-4"
+            className="mt-6 flex flex-wrap items-center gap-4"
           >
             <Magnetic>
               <a href="#projects" className="group relative inline-flex items-center gap-3 overflow-hidden rounded-full bg-lime px-7 py-4 font-semibold text-ink">

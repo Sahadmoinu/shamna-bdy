@@ -3,7 +3,12 @@ export const YEAR = new Date().getFullYear()
 export const profile = {
   name: 'Shamna K',
   firstName: 'Shamna',
-  roles: ['Project Coordinator', 'Business Analyst', 'Agile Practitioner', 'MERN Developer'],
+  greeting: 'Hi, I’m',
+  roles: ['IT Project Coordinator', 'Business Analyst', 'Technology Enthusiast'],
+  tagline: 'I turn business ideas into structured, actionable technology solutions.',
+  intro:
+    'Experienced in coordinating software development projects, managing cross-functional teams, gathering requirements, and delivering solutions through Agile methodologies.',
+  cta: 'Let’s build something impactful.',
   company: 'BPract Software Solutions',
   location: 'Kerala, India',
   email: 'shamnadoanas@gmail.com',
@@ -30,7 +35,7 @@ export const nav = [
 export const stats = [
   { value: 100, suffix: '+', label: 'Students mentored in Python' },
   { value: 15, suffix: '+', label: 'Members coordinated at IEEE SB' },
-  { value: 5, suffix: '', label: 'Projects coordinated end to end' },
+  { value: 15, suffix: '+', label: 'Projects coordinated end to end' },
   { value: 4, suffix: '', label: 'Languages spoken' },
 ]
 
@@ -141,11 +146,11 @@ export const projects = [
     type: 'MLM Web Application · Binary Plan',
     role: 'Project Coordinator',
     org: 'BPract Software Solutions',
-    region: 'Client in Peru',
+    region: 'International client',
     visual: 'binary',
     accent: '#9a7150',
     summary:
-      'Primary communication link between the Peruvian client and the technical teams, taking a binary-plan MLM platform from scope to delivery.',
+      'Primary communication link between the international client and the technical teams, taking a binary-plan MLM platform from scope to delivery.',
     points: [
       'Ran client discussions to clarify scope and turned requirements into prioritised Jira tasks.',
       'Facilitated Agile/Scrum ceremonies and tracked sprint progress across dev and QA.',
